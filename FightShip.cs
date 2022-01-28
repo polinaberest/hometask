@@ -14,6 +14,11 @@ namespace game1
             
         }
 
+        public FightShip()
+        {
+
+        }
+
         public void Shoot() {
             return;
         }

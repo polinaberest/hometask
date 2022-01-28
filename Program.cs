@@ -6,17 +6,52 @@ namespace game1
     {
         static void Main(string[] args)
         {
-            var scena = new Scene(10);
-            scena.scene[0, 0] = 1;
-            scena.PlaceSpaceAroundShips(new Point(0, 0));
-            for (int i = 0; i < 10; i++)
+            Console.WriteLine("введите размер поля");
+            var scena = new Scene(int.Parse(Console.ReadLine()));
+            for (int i = 0; i <= 10; i++)
             {
-                for (int j = 0; j < 10; j++)
+                Console.WriteLine("type\n1-fight\n2-mixed\n3-fix");
+                int type = int.Parse(Console.ReadLine());
+                Ship ship = null;
+                switch (type)
                 {
-                    Console.Write(scena.scene[i,j]+" ");
+                    case 1:
+                        ship = new FightShip();
+                        break;
+                    case 2:
+                        ship = new MixedShip();
+                        break;
+                    case 3:
+                        ship = new FixShip();
+                        break;
+                    default:
+                        Console.WriteLine("Incorrect value!!!");
+                        break;
                 }
-                Console.WriteLine();
+
+                Console.WriteLine("длина");
+                var size = int.Parse(Console.ReadLine());
+                ship.ShipSize = size;
+
+                Console.WriteLine("speed");
+                ship.Speed = int.Parse(Console.ReadLine());
+
+                ship.point = new Point(0, 0);
+                Console.WriteLine("X point");
+                ship.point.X = int.Parse(Console.ReadLine()) - 1;
+
+                Console.WriteLine("Y point");
+                ship.point.Y = int.Parse(Console.ReadLine()) - 1;
+
+                Console.WriteLine("direction\n1-bottom\n2-right");
+                ship.shipDirection = (Ship.ShipDirection)int.Parse(Console.ReadLine()) - 1;
+
+                scena.PlaceShip(ship);
+                scena.PrintScene();
             }
+         
+
+            
         }
         
     }

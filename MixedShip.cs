@@ -8,6 +8,11 @@ namespace game1
 {
     class MixedShip : Ship
     {
+        public MixedShip()
+        {
+
+        }
+
         public MixedShip(int size, int speed, Point point, ShipDirection direction) : base(size, speed, point, direction)
         {
             

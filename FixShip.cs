@@ -12,6 +12,12 @@ namespace game1
         {
             
         }
+
+        public FixShip()
+        {
+
+        }
+
         int areaOfAccess = 4;
         public void Fix() { }
         public override string ToString()

@@ -14,7 +14,7 @@ namespace game1
             Right
         }
         public ShipDirection shipDirection;
-        public Point point;
+        public Point point = null;
         private int shipSize;
 
         public int ShipSize
@@ -23,9 +23,9 @@ namespace game1
                     return shipSize;
             }
             set {
-                if (shipSize > 4)
+                if (value > 4)
                     shipSize = 4;
-                else if (shipSize <= 0)
+                else if (value <= 0)
                     shipSize = 1;
                 else
                     shipSize = Math.Abs(value); 
@@ -50,6 +50,11 @@ namespace game1
             }
         }
 
+        public Ship()
+        {
+
+        }
+
         public Ship(int size, int speed, Point point, ShipDirection direction)
         {
             ShipSize = size;
@@ -71,5 +76,24 @@ namespace game1
 
         public void Move() { }
 
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(obj, null))
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

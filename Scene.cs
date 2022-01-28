@@ -36,10 +36,6 @@ namespace game1
                 { 
                     for (int i = ship.ShipSize - 1; i >= 0; i--)
                     {
-                        /*if (scene[ship.point.Y + i, ship.point.X]!=0)
-                        {
-                            throw new Exception("Место занято, ищи другое!");
-                        }*/
                         scene[ship.point.Y + i, ship.point.X] = 1;
                         PlaceSpaceAroundShips(new Point(ship.point.Y + i, ship.point.X));
                     }
@@ -56,7 +52,9 @@ namespace game1
                     }
                 }
             }
-            
+
+            shipList.Add(ship);
+
             switch (ship.ShipSize)
             {
                 case 4:
@@ -84,9 +82,9 @@ namespace game1
                 {
                     try
                     {
-                        if (scene[point.Y - i, point.X + j] == 0)
+                        if (scene[ point.X + j, point.Y - i] == 0)
                         {
-                            scene[point.Y - i, point.X + j] = 2;
+                            scene[ point.X + j, point.Y - i] = 2;
                         }
                     }
                     catch
@@ -126,6 +124,18 @@ namespace game1
 
             }
             return false;
+        }
+
+        public void PrintScene() 
+        {
+            for (int i = 0; i < scene.GetLength(0); i++)
+            {
+                for (int j = 0; j < scene.GetLength(1); j++)
+                {
+                    Console.Write(scene[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
 
 
