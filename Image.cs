@@ -19,5 +19,9 @@ namespace parse
             Size = Extensions.ConvertSize(size);
             Resolution = resolution;
         }
+        public override string ToString()
+        {
+            return $"{this.Name}\n    Extension:{this.extensionI}\n    Size: {this.Size} Bytes\n    Resolution: {this.Resolution} ";
+        }
     }
 }

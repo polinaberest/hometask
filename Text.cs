@@ -19,5 +19,10 @@ namespace parse
             Size = Extensions.ConvertSize(size);
             Content = content;
         }
+
+        public override string ToString()
+        {
+            return $" {this.Name}\n    Extension:{this.extensionT}\n    Size: {this.Size} Bytes\n    Content:{this.Content}\n";
+        }
     }
 }

@@ -21,6 +21,10 @@ namespace parse
             Resolution = resolution;
             MovieLength = length;
         }
+        public override string ToString()
+        {
+            return $" {this.Name}\n    Extension:{this.extensionM}\n    Size: {this.Size} Bytes\n    Resolution: {this.Resolution}\n    Length:{this.MovieLength}\n";
+        }
     }
     
 }

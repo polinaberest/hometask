@@ -47,6 +47,10 @@ namespace parse
             List<TextFile> sortedText = textFilesList.OrderByDescending(f => f.Size).ToList();
             List<Image> sortedImages = imagesList.OrderByDescending(i => i.Size).ToList();
 
+            ShowTextList(sortedText);
+            ShowImageList(sortedImages);
+            ShowMovieList(sortedMovie);
+
         }
 
         
@@ -61,6 +65,33 @@ namespace parse
         {
             string[] separator = { "(", "); " , "; " };
             return item.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        static void ShowImageList(List<Image> sortedImages)
+        {
+            Console.WriteLine("Images:\n");
+            foreach (var image in sortedImages)
+            {
+                Console.WriteLine(image.ToString());
+            }
+        }
+
+        static void ShowMovieList(List<Movie> sortedMovie)
+        {
+            Console.WriteLine("Movies:\n");
+            foreach (var image in sortedMovie)
+            {
+                Console.WriteLine(image.ToString());
+            }
+        }
+
+        static void ShowTextList(List<TextFile> sortedText)
+        {
+            Console.WriteLine("Text files::\n");
+            foreach (var image in sortedText)
+            {
+                Console.WriteLine(image.ToString());
+            }
         }
     }
 }
